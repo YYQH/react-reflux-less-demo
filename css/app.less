@@ -1,0 +1,167 @@
+.loader {
+	// 页面中居中
+	position: absolute;
+	width: 11em;
+	height: 11em;
+	top: 50%;
+	left: 50%;
+	margin: -5.5em;
+	// background: orange;
+	// 让容器转
+	transform: rotate(45deg);
+	&:after,
+	&:before {
+		width: 1em;
+		height: 1em;
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 0.5em;
+	}
+	&:after {
+		// background: green;
+		// 第一帧
+		// box-shadow: -3em -5em yellow, 3em 5em pink;
+		// 第二帧
+		// height: 11em;
+		// box-shadow: -3em 0 yellow, 3em 0 pink;
+		// 第三帧
+		// box-shadow: -3em 5em yellow, 3em -5em pink;
+		animation: moveafter 2s infinite;
+	}
+	&:before {
+		// background: blue;
+		// 第一帧
+		// box-shadow: 5em -3em purple, -5em 3em yellowgreen;
+		// 第二帧
+		// width: 11em;
+		// box-shadow: 0 -3em purple, 0 3em yellowgreen;
+		// 第三帧
+		// box-shadow: -5em -3em purple, 5em 3em yellowgreen;
+		animation: movebefore 2s infinite;
+	}
+}
+.loader-text {
+	position: absolute;
+	top: calc(50% - 30em);
+	left: 50%;
+	margin-left: -5em;
+	font-size: 20px;
+}
+
+// 定义动画
+@keyframes moveafter {
+	0% {
+		box-shadow: -3em -5em #b3e5d5, 3em 5em #f7dfac;
+	}
+	35% {
+		height: 11em;
+		box-shadow: -3em 0 #b3e5d5, 3em 0 #f7dfac;
+	}
+	70% {
+		height: 1em;
+		box-shadow: -3em 5em #b3e5d5, 3em -5em #f7dfac;
+	}
+	// 终点跟起点是一样的
+	100% {
+		box-shadow: -3em -5em #b3e5d5, 3em 5em #f7dfac;
+	}
+}
+@keyframes movebefore {
+	0% {
+		box-shadow: 5em -3em #c9f0fc, -5em 3em #f4a7c4;
+	}
+	35% {
+		width: 11em;
+		box-shadow: 0 -3em #c9f0fc, 0 3em #f4a7c4;
+	}
+	70% {
+		width: 1em;
+		box-shadow: -5em -3em #c9f0fc, 5em 3em #f4a7c4;
+	}
+	100% {
+		box-shadow: 5em -3em #c9f0fc, -5em 3em #f4a7c4;
+	}
+}
+
+// 内容列表的样式
+.app-main {
+	.inner {
+		margin-right: -20px;
+	}
+	ul {
+		padding: 40px 0 100px;
+	}
+	ul li {
+		width: 270px;
+		height: 180px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		background-repeat: no-repeat;
+		list-style: none;
+		float: left;
+		position: relative;
+		a {
+			color: #fff;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	.content {
+		height: 200px;
+		width: 270px;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		padding: 0 20px;
+		h2 {
+			margin: 0;
+			font-size: 38px;
+		}
+	}
+	.layer {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		opacity: 0;
+		padding: 50px 30px;
+	}
+	a:hover .layer {
+		opacity: 1;
+		transition: opacity 400ms;
+	}
+}
+// 头部样式
+.header {
+	.nav a {
+		padding: 15px;
+		&:hover {
+			background: none;
+		}
+	}
+	input {
+		padding: 5px 10px;
+		margin-top: 8px;
+	}
+	.banner {
+		height: 500px;
+	}
+	.banner-0 {
+		background: url(../img/banner/banner0.jpg) no-repeat center 0;
+		background-size: cover;
+	}
+	.banner-1 {
+		background: url(../img/banner/banner1.jpg) no-repeat center 0;
+		background-size: cover;
+	}
+	img {
+		cursor: pointer;
+	}
+}
